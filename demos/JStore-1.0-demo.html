@@ -1,0 +1,113 @@
+<!DOCTYPE HTML5>
+<html>
+    <head>
+        <title>JStore 1.0 demo</title>
+        <script type="text/javascript" src="../releases/JStore-1.0-min.js"></script>
+        <script type="text/javascript">
+            // Object.clone, used to clone local and session Storage for the
+            // demo purposes (can console.log it at a certain state)
+            var clone = function clone(obj)
+            {
+
+                var ret = new Object();
+                for (var key in obj){
+                    if (obj.hasOwnProperty(key)) {
+                        ret[key] = obj[key];
+                    }
+                }
+                return ret;
+                
+            };
+        </script>
+        <script type="text/javascript">
+            if (ls) {
+                console.log('1. Browser does support Storage, we can use JStore!');
+            } else {
+                console.log('1. Browser does not support Storage, we can not use JStore here :(');
+            }
+
+            console.log('\n');
+
+            console.log('2. You can set an item to localStorage using: localStorage.set("foo", "bar"); ');
+            localStorage.set('foo', 'bar');
+            console.log('   Success! Look it\'s there!', clone(localStorage));
+
+            console.log('\n');
+
+            console.log('3. We can also set an item to the sessionStorage using: sessionStorage.set("fooSession", "barSession"); ');
+            sessionStorage.set('fooSession', 'barSession');
+            console.log('   Great! Look it\'s there!', clone(sessionStorage));
+
+            console.log('\n');
+
+            console.log('4. You prefer things shorter? Me too! At any time you can also use the variables "ls" and "ss" as wrappers.');
+            ls.set('short', 'is definitely better');
+            ss.set('short', 'is definitely better');
+            console.log('   Yeah! Look it\'s there!', clone(ls), 'and there!', clone(ss));
+
+            console.log('\n');
+
+            console.log('5. We sometimes want to get rid of things, try to remove an item using: ls.remove("short")');
+            ls.remove('short');
+            console.log('   Well done commander! Look "short" is no more there!', clone(ls));
+
+            console.log('\n');
+
+            console.log('6. Party is better when there is more folks! Look you can set several items at a time!');
+            console.log('   Simply use: ls.set({ foo1: "bar1", foo2: "bar2" });');
+            ls.set({ foo1: 'bar1', foo2: 'bar2' });
+            console.log('   Gratz! Everything is where it belongs, there take a look!', clone(ls));
+
+            console.log('\n');
+
+            console.log('7. And also get and remove serveral items at a time! Let\'s use: ls.get(["foo", "foo2"]);');
+            console.log('   Look what we got!', ls.get(['foo', 'foo2']));
+
+            console.log('\n');
+
+            console.log('8. Cool story man, but now what? Well JStore is aimed to abstract Storage to work with it');
+            console.log('   as if it were a JavaScript Object, that means we can set get and remove values from stringified');
+            console.log('   objects stored in both local and session Storage. Check that with ls.set("object", {foo:"bar"})');
+            ls.set('object', {foo:'bar'})
+            console.log('   We got it stringified, great!', clone(ls));
+
+            console.log('\n');
+
+            console.log('9. Now let\'s say I need to get only a property of the object, we can now use: ls.get("object.foo")');
+            console.log('   Awesome! JStore returns us the value "'+ls.get('object.foo')+'"');
+
+            console.log('\n');
+
+            console.log('10. And if I want to modify only a property of my object, can I? Yes, use set like this: ls.set("object.lorem", "ipsum")');
+            ls.set('object.lorem', 'ipsum');
+            console.log('    Woow, handy! Check that out:', clone(ls));
+
+            console.log('\n');
+
+            console.log('11. Removes works also in here! Test that: ls.remove("object.foo")');
+            ls.remove('object.foo');
+            console.log('    Hell yeah, the property foo is no longer here!', clone(ls));
+
+            console.log('\n');
+
+            console.log('12. Remember you can always mix things together, like setting several object properties at a time');
+            console.log('    Using for instance: ls.set({ "object.hello": "world", "object.max": 42 })');
+            ls.set({ "object.hello": "world", "object.max": 42 })
+            console.log('    :3 Legen-Wait For It-DARY!', clone(ls));
+            
+            console.log('\n');
+
+            console.log('13. Wait! We need to erase our foolishness before leaving! Let\'s use: ls.c() and ss.c() to clear!');
+            ls.c(); ss.c();
+            console.log('   All done, sector clear! See?', clone(ls), clone(ss));
+
+            console.log('\n');
+
+            console.log('Thanks for checking JStore :>');
+            
+        </script>
+    </head>
+<body>
+Check your Javascript console!
+</body>
+</html>
