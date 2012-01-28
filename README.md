@@ -1,6 +1,7 @@
 JStore
 ======
 
+
 What is JStore?
 ---------------
 
@@ -53,50 +54,50 @@ Usage
 
 * You can set an item to localStorage using:
 
-    localStorage.set("foo", "bar"); 
+        localStorage.set("foo", "bar"); 
 
 * We can also set an item to the sessionStorage using:
 
-    sessionStorage.set("fooSession", "barSession"); 
+        sessionStorage.set("fooSession", "barSession"); 
 
 * You prefer things shorter? Me too! At any time you can also use the variables "ls" and "ss" as wrappers.
 
 * We sometimes want to get rid of things, try to remove an item using:
 
-    ls.remove("short")
+        ls.remove("short")
 
 * And we could also need to check is something is there, yes with: 
 
-    ls.isset("foo")
+        ls.isset("foo")
 
 * Party is better when there is more folks! Look you can set several items at a time! Simply use:
 
-    ls.set({ foo1: "bar1", foo2: "bar2" });
+        ls.set({ foo1: "bar1", foo2: "bar2" });
 
 * And also get and remove serveral items at a time! Let's use:
 
-    ls.get(["foo", "foo2"]);
+        ls.get(["foo", "foo2"]);
 
 * Cool story man, but now what? Well JStore is aimed to abstract Storage to work with it as if it were a JavaScript Object, that means we can set get and remove values from stringified objects stored in both local and session Storage. Check that with: 
 
-    ls.set("object", {foo:"bar"})
+        ls.set("object", {foo:"bar"})
 
 * Now let's say I need to get only a property of the object, we can now use:
 
-    ls.get("object.foo")
+        ls.get("object.foo")
 
 * And if I want to modify only a property of my object, can I? Yes, use set like this:
 
-    ls.set("object.lorem", "ipsum")
+        ls.set("object.lorem", "ipsum")
 
 * Removes works also in here! Test that:
 
-    ls.remove("object.foo")
+        ls.remove("object.foo")
 
 * Remember you can always mix things together, like setting several object properties at a time. Using for instance:
 
-    ls.set({ "object.hello": "world", "object.max": 42 })
+        ls.set({ "object.hello": "world", "object.max": 42 })
 
 * Wait! We need to erase our foolishness before leaving! Let's use:
 
-    ls.c(); ss.c();
+        ls.c(); ss.c();
