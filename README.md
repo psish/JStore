@@ -1,10 +1,6 @@
 JStore
 ======
 
-
-What is JStore?
----------------
-
 JStore is a lightweight JavaScript Library aimed to make the use of local and session Storage easier. It helps you set, get and remove one or several items at a time. Moreover JStore abstracts the Storage to make you feel that you work with regular JavaScript Object, not only stringified boring key/values combinaisons.
 
 Functions
