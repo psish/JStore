@@ -53,19 +53,25 @@
 
             console.log('\n');
 
-            console.log('6. Party is better when there is more folks! Look you can set several items at a time!');
+            console.log('6. And we could also need to check is something is there, yes with: ls.isset("foo")');
+            console.log('   I guess "foo" is there! This is ' + ls.isset('foo') + '!');
+
+
+            console.log('\n');
+
+            console.log('7. Party is better when there is more folks! Look you can set several items at a time!');
             console.log('   Simply use: ls.set({ foo1: "bar1", foo2: "bar2" });');
             ls.set({ foo1: 'bar1', foo2: 'bar2' });
             console.log('   Gratz! Everything is where it belongs, there take a look!', clone(ls));
 
             console.log('\n');
 
-            console.log('7. And also get and remove serveral items at a time! Let\'s use: ls.get(["foo", "foo2"]);');
+            console.log('8. And also get and remove serveral items at a time! Let\'s use: ls.get(["foo", "foo2"]);');
             console.log('   Look what we got!', ls.get(['foo', 'foo2']));
 
             console.log('\n');
 
-            console.log('8. Cool story man, but now what? Well JStore is aimed to abstract Storage to work with it');
+            console.log('9. Cool story man, but now what? Well JStore is aimed to abstract Storage to work with it');
             console.log('   as if it were a JavaScript Object, that means we can set get and remove values from stringified');
             console.log('   objects stored in both local and session Storage. Check that with ls.set("object", {foo:"bar"})');
             ls.set('object', {foo:'bar'})
@@ -73,31 +79,31 @@
 
             console.log('\n');
 
-            console.log('9. Now let\'s say I need to get only a property of the object, we can now use: ls.get("object.foo")');
-            console.log('   Awesome! JStore returns us the value "'+ls.get('object.foo')+'"');
+            console.log('10. Now let\'s say I need to get only a property of the object, we can now use: ls.get("object.foo")');
+            console.log('    Awesome! JStore returns us the value "'+ls.get('object.foo')+'"');
 
             console.log('\n');
 
-            console.log('10. And if I want to modify only a property of my object, can I? Yes, use set like this: ls.set("object.lorem", "ipsum")');
+            console.log('11. And if I want to modify only a property of my object, can I? Yes, use set like this: ls.set("object.lorem", "ipsum")');
             ls.set('object.lorem', 'ipsum');
             console.log('    Woow, handy! Check that out:', clone(ls));
 
             console.log('\n');
 
-            console.log('11. Removes works also in here! Test that: ls.remove("object.foo")');
+            console.log('12. Removes works also in here! Test that: ls.remove("object.foo")');
             ls.remove('object.foo');
             console.log('    Hell yeah, the property foo is no longer here!', clone(ls));
 
             console.log('\n');
 
-            console.log('12. Remember you can always mix things together, like setting several object properties at a time');
+            console.log('13. Remember you can always mix things together, like setting several object properties at a time');
             console.log('    Using for instance: ls.set({ "object.hello": "world", "object.max": 42 })');
             ls.set({ "object.hello": "world", "object.max": 42 })
             console.log('    :3 Legen-Wait For It-DARY!', clone(ls));
             
             console.log('\n');
 
-            console.log('13. Wait! We need to erase our foolishness before leaving! Let\'s use: ls.c() and ss.c() to clear!');
+            console.log('14. Wait! We need to erase our foolishness before leaving! Let\'s use: ls.c() and ss.c() to clear!');
             ls.c(); ss.c();
             console.log('   All done, sector clear! See?', clone(ls), clone(ss));
 
